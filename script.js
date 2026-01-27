@@ -41,17 +41,18 @@ btnSi.addEventListener('click', function () {
     parrafoFinal.textContent = 'Entonces es un SÍ para siempre, te quiero mucho ❤️';
   }
 
-btnNo.addEventListener('click', function () {
-  const tituloFinal = document.querySelector('#final h2');
-  const parrafoFinal = document.querySelector('#final p');
+  btnNo.addEventListener('click', function () {
+    const tituloFinal = document.querySelector('#final h2');
+    const parrafoFinal = document.querySelector('#final p');
 
-  if (tituloFinal) {
-    tituloFinal.textContent = 'Uy… has puesto que no 💔';
-  }
-  if (parrafoFinal) {
-    parrafoFinal.textContent = 'Respues erronea(Error404), vuelvalo a rellenar.';
-  }
+    if (tituloFinal) {
+      tituloFinal.textContent = 'Uy… has puesto que no 💔';
+    }
+    if (parrafoFinal) {
+      parrafoFinal.textContent = 'Respues erronea(Error404), vuelvalo a rellenar.';
+    }
 
+    nube.style.display = 'none';
+  });
   nube.style.display = 'none';
-});
 });
