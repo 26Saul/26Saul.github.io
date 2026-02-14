@@ -56,3 +56,48 @@ btnSi.addEventListener('click', function () {
   });
   nube.style.display = 'none';
 });
+
+// Juego: adivina el número del 1 al 10
+const secretNumber = Math.floor(Math.random() * 10) + 1;
+const guessInput = document.getElementById('guess-input');
+const guessBtn = document.getElementById('guess-btn');
+const gameMessage = document.getElementById('game-message');
+
+if (guessBtn) {
+  guessBtn.addEventListener('click', function () {
+    const value = Number(guessInput.value);
+
+    if (!value || value < 1 || value > 10) {
+      gameMessage.textContent = 'Pon un número del 1 al 10, mi amor.';
+      gameMessage.style.color = '#c0392b';
+      return;
+    }
+
+    if (value === secretNumber) {
+      gameMessage.textContent = '¡Has acertado! Te debo mínimo 10 besos 💋';
+      gameMessage.style.color = '#27ae60';
+    } else if (value < secretNumber) {
+      gameMessage.textContent = 'Es un poquito más alto. Inténtalo otra vez ❤️';
+      gameMessage.style.color = '#8e44ad';
+    } else {
+      gameMessage.textContent = 'Es un poquito más bajo. Inténtalo otra vez ❤️';
+      gameMessage.style.color = '#8e44ad';
+    }
+  });
+}
+
+// Abrir / cerrar carta de San Valentín
+const cartaBox = document.getElementById('carta-box');
+const cartaToggle = document.getElementById('carta-toggle');
+
+if (cartaBox && cartaToggle) {
+  cartaToggle.addEventListener('click', function () {
+    const abierta = cartaBox.classList.toggle('abierta');
+
+    if (abierta) {
+      cartaToggle.textContent = 'Cerrar carta 💌';
+    } else {
+      cartaToggle.textContent = 'Abrir carta 💌';
+    }
+  });
+}

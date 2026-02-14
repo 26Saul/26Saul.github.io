@@ -12,7 +12,7 @@ body {
 }
 
 .hero {
-  min-height: 100vh;          
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,11 +21,11 @@ body {
   padding: 3rem 1.5rem;
 
   background-image:
-    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("img/imagen7.jpeg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;    
+  background-size: cover;
   color: #fff;
 }
 
@@ -48,13 +48,98 @@ body {
   padding: 3rem 1.5rem;
 }
 
+/* Fondo muy claro blanco */
 .section-light {
   background: #fffdfd;
 }
 
+/* Fondo rosa suave para secciones normales */
 .section-colored {
   background: #ffe3ee;
 }
+.section-sanvalentin {
+  background: #fef0ff;
+}
+
+.carta-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fffdfd;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  border: 1px solid #ffd3e6;
+  position: relative;
+  text-align: center;
+}
+
+/* Sobre cerrado por defecto */
+.carta-box::before {
+  content: "💌 Carta cerrada";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fffdfd;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  border: 1px solid #ffd3e6;
+}
+
+/* Cuando se abra la carta, cambiamos el texto del “sobre” */
+.carta-box.abierta::before {
+  content: "📖 Carta abierta";
+}
+
+.carta-toggle {
+  margin-bottom: 1rem;
+}
+
+/* Contenido oculto al principio */
+.carta-contenido {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  text-align: left;
+}
+
+/* Cuando esté abierta, mostramos el texto */
+.carta-box.abierta .carta-contenido {
+  max-height: 500px; /* suficiente para el texto */
+  opacity: 1;
+}
+
+.carta-contenido p {
+  margin-bottom: 1rem;
+}
+
+.carta-regalos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.carta-regalo-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.carta-regalo-item img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  object-fit: contain;
+  max-height: 220px;
+  background: #fff4f7;
+}
+
+
+
+
 
 .section h2 {
   text-align: center;
@@ -72,12 +157,12 @@ body {
   border: none;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outline {
@@ -124,17 +209,64 @@ body {
   margin: 0 auto;
 }
 
+.gallery-item {
+  background: #fffdfd;
+  border-radius: 16px;
+  padding: 0.75rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
 .gallery img {
   width: 100%;
   border-radius: 12px;
   display: block;
+  object-fit: contain;
+  /* antes: cover */
 }
 
 .gallery figcaption {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   font-size: 0.9rem;
   text-align: center;
+  color: #555;
 }
+
+/* Caja del juego */
+.game-box {
+  max-width: 320px;
+  margin: 1rem auto 0;
+  padding: 1.5rem;
+  background: #ffe3ee;
+  border-radius: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.game-box input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #ff8fb1;
+  margin-bottom: 0.8rem;
+  outline: none;
+}
+
+.game-box input:focus {
+  border-color: #ff4b8b;
+  box-shadow: 0 0 0 2px rgba(255, 75, 139, 0.2);
+}
+
+.game-box #game-message {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+}
+
 
 .reasons {
   max-width: 600px;
@@ -150,9 +282,11 @@ footer {
 
 .nube {
   position: fixed;
-  inset: 0; /* top, right, bottom, left: 0 */
+  inset: 0;
+  /* top, right, bottom, left: 0 */
   background: rgba(0, 0, 0, 0.55);
-  display: none;              /* oculta al inicio */
+  display: none;
+  /* oculta al inicio */
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -165,7 +299,7 @@ footer {
   max-width: 340px;
   width: 90%;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nube__contenido p {
