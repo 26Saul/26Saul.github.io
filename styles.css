@@ -43,7 +43,6 @@ body {
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
-
 .section {
   padding: 3rem 1.5rem;
 }
@@ -57,6 +56,8 @@ body {
 .section-colored {
   background: #ffe3ee;
 }
+
+/* Fondo especial para San Valentín */
 .section-sanvalentin {
   background: #fef0ff;
 }
@@ -107,7 +108,7 @@ body {
 
 /* Cuando esté abierta, mostramos el texto */
 .carta-box.abierta .carta-contenido {
-  max-height: 500px; /* suficiente para el texto */
+  max-height: 1000px;
   opacity: 1;
 }
 
@@ -115,6 +116,7 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Regalos dentro de la carta */
 .carta-regalos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -136,6 +138,7 @@ body {
   max-height: 220px;
   background: #fff4f7;
 }
+
 
 
 
