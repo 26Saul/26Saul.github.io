@@ -139,6 +139,18 @@ body {
   background: #fff4f7;
 }
 
+#texto-regalo {
+  font-weight: 600;
+  color: #ff4b8b;
+}
+
+.regalo-intro {
+  text-align: center;
+  margin: 0 auto 1rem auto;
+  max-width: 500px;
+}
+
+
 
 
 
@@ -242,7 +254,7 @@ body {
 
 /* Caja del juego */
 .game-box {
-  max-width: 320px;
+  max-width: 410px;
   margin: 1rem auto 0;
   padding: 1.5rem;
   background: #ffe3ee;
@@ -314,4 +326,13 @@ footer {
   display: flex;
   gap: 1rem;
   justify-content: center;
+}
+
+#final {
+  text-align: center;
+}
+
+#final p {
+  max-width: 600px;
+  margin: 0 auto 1rem auto;
 }

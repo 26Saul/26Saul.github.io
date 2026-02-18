@@ -103,3 +103,28 @@ if (cartaBox && cartaToggle) {
     }
   });
 }
+
+// Juego "Elige tu regalo sorpresa"
+const btnOpcionA = document.getElementById("opcion-a");
+const btnOpcionB = document.getElementById("opcion-b");
+const textoRegalo = document.getElementById("texto-regalo");
+
+let regaloElegido = false;
+
+if (btnOpcionA && btnOpcionB && textoRegalo) {
+  btnOpcionA.addEventListener("click", function () {
+    if (regaloElegido) return; // ya ha elegido uno
+
+    regaloElegido = true;
+    textoRegalo.textContent = "Has elegido el Regalo Cachondo: Ui pillina que pensabas que había aqui dentro?. Te llevas unas flores de regalo. :)";
+    btnOpcionB.style.display = "none"; // ocultamos la otra opción
+  });
+
+  btnOpcionB.addEventListener("click", function () {
+    if (regaloElegido) return;
+
+    regaloElegido = true;
+    textoRegalo.textContent = "Has elegido el Regalo Bonito: Muy bien, yo tambien te quiero dar cosas bonitas como la persona que esta leyendo esto, por eso te vas a llevar unas flores de regalo y si usted lo desea algo más porque eres la persona mas BONITA que he visto en mi vida aunque no tengas maquillaje PRECIOSA, te quiere tu novio. :=) ";
+    btnOpcionA.style.display = "none";
+  });
+}
