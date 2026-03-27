@@ -336,3 +336,104 @@ footer {
   max-width: 600px;
   margin: 0 auto 1rem auto;
 }
+
+/* Fondo general de la página en rosa pastel */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #ffc5d3; /* rosa pastel */
+}
+
+/* Sección general */
+.section-light {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  background: #ffffff; /* carta en blanco sobre fondo rosa */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  color: #3a2b3b;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Detalle de corazones en el fondo de la carta */
+.section-light::before,
+.section-light::after {
+  content: "❤";
+  position: absolute;
+  font-size: 4rem;
+  color: rgba(255, 105, 180, 0.18);
+}
+
+.section-light::before {
+  top: -10px;
+  left: 16px;
+}
+
+.section-light::after {
+  bottom: -5px;
+  right: 20px;
+}
+
+/* Título de la carta */
+#carta h2 {
+  font-family: "Playfair Display", "Georgia", serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #42213d;
+  position: relative;
+}
+
+#carta h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  border-radius: 999px;
+  margin: 0.8rem auto 0;
+  background: rgba(255, 105, 180, 0.8);
+}
+
+/* Párrafos de la carta */
+#carta p {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+  text-align: justify;
+}
+
+
+
+/* Último párrafo destacado */
+#carta p:last-of-type {
+  margin-top: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .section-light {
+    margin: 2rem 1rem;
+    padding: 2.2rem 1.6rem;
+  }
+
+  #carta h2 {
+    font-size: 1.8rem;
+  }
+
+  #carta p {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.1rem;
+  text-align: justify;
+  color: #000000; /* mismo color en todas las líneas */
+}
+}
