@@ -128,3 +128,119 @@ if (btnOpcionA && btnOpcionB && textoRegalo) {
     btnOpcionA.style.display = "none";
   });
 }
+
+// Juego 3 en raya contra bot
+const boardElement = document.getElementById('tictactoe-board');
+const statusElement = document.getElementById('ttt-status');
+const resetButton = document.getElementById('ttt-reset');
+const loveMessage = document.getElementById('love-message');
+const cellButtons = document.querySelectorAll('.cell');
+
+if (boardElement && statusElement && resetButton && loveMessage && cellButtons.length) {
+  let board = ['', '', '', '', '', '', '', '', ''];
+  let gameActive = true;
+
+  const human = '❌';
+  const bot = '⭕';
+
+  const winPatterns = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+
+  function checkWinner(player) {
+    return winPatterns.some(pattern => {
+      return pattern.every(index => board[index] === player);
+    });
+  }
+
+  function isDraw() {
+    return board.every(cell => cell !== '');
+  }
+
+  function updateBoard() {
+    cellButtons.forEach((button, index) => {
+      button.textContent = board[index];
+      button.disabled = board[index] !== '' || !gameActive;
+    });
+  }
+
+  function finishGame(message, showSecret = false) {
+    gameActive = false;
+    statusElement.textContent = message;
+    updateBoard();
+
+    if (showSecret) {
+      loveMessage.hidden = false;
+    }
+  }
+
+  function botMove() {
+    if (!gameActive) return;
+
+    const emptyIndexes = board
+      .map((value, index) => (value === '' ? index : null))
+      .filter(index => index !== null);
+
+    if (!emptyIndexes.length) return;
+
+    const randomIndex = emptyIndexes[Math.floor(Math.random() * emptyIndexes.length)];
+    board[randomIndex] = bot;
+
+    if (checkWinner(bot)) {
+      finishGame('Ay nooo, perdiste contra la IA ⭕. Pero te doy revancha, preciosa.');
+      return;
+    }
+
+    if (isDraw()) {
+      finishGame('Empate 💞. Eso significa que estamos igual de fuertes.');
+      return;
+    }
+
+    statusElement.textContent = 'Tu turno, amor. Tú eres ❌';
+    updateBoard();
+  }
+
+  cellButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const index = Number(button.dataset.cell);
+
+      if (!gameActive || board[index] !== '') return;
+
+      board[index] = human;
+      updateBoard();
+
+      if (checkWinner(human)) {
+        finishGame('¡UIIIIIIIII Le ganaste a la IA mi princesa muy bien toma tu regalo ! ', true);
+        return;
+      }
+
+      if (isDraw()) {
+        finishGame('Empate 💞. Juega otra vez, mi princesa.');
+        return;
+      }
+
+      statusElement.textContent = 'Pensando jugada del IA...';
+
+      setTimeout(() => {
+        botMove();
+      }, 500);
+    });
+  });
+
+  resetButton.addEventListener('click', () => {
+    board = ['', '', '', '', '', '', '', '', ''];
+    gameActive = true;
+    loveMessage.hidden = true;
+    statusElement.textContent = 'Tu turno princesa. Tú eres ❌';
+    updateBoard();
+  });
+
+  updateBoard();
+}
