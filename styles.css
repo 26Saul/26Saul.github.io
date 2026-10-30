@@ -518,3 +518,162 @@ body {
   color: #000000; /* mismo color en todas las líneas */
 }
 }
+
+/* ============================= */
+/* NUESTRO PRIMER AÑO */
+/* ============================= */
+
+.anniversary {
+    margin-top: 3rem;
+}
+
+.anniversary-intro {
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.anniversary-lock {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 1.8rem 1.5rem;
+
+    text-align: center;
+    background: #ffe3ee;
+    border: 1px solid #ffd3e6;
+    border-radius: 20px;
+}
+
+.anniversary-lock input {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.8rem 1rem;
+
+    border: 1px solid #ff8fb1;
+    border-radius: 999px;
+    outline: none;
+
+    text-align: center;
+}
+
+.anniversary-lock input:focus {
+    border-color: #ff4b8b;
+    box-shadow: 0 0 0 2px rgba(255, 75, 139, 0.2);
+}
+
+.anniversary-message {
+    min-height: 1.4rem;
+    margin: 0.8rem 0 0;
+    font-weight: 600;
+}
+
+.anniversary-message.error {
+    color: #c0392b;
+}
+
+.anniversary-content {
+    margin-top: 2.5rem;
+}
+
+.anniversary-letter {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    padding: 2rem 1.5rem;
+
+    text-align: center;
+    background: #fff8fb;
+    border: 1px solid #ffd3e6;
+    border-radius: 20px;
+}
+
+.anniversary-letter h3 {
+    color: #ff4b8b;
+}
+
+.anniversary-letter p {
+    line-height: 1.8;
+    text-align: center;
+}
+
+.anniversary-signature {
+    font-weight: 700;
+    color: #ff4b8b;
+}
+
+.anniversary-gallery {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+    );
+
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+
+.anniversary-gallery figure {
+    margin: 0;
+    padding: 0.75rem;
+
+    background: #fffdfd;
+    border-radius: 16px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.anniversary-gallery img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.anniversary-gallery figcaption {
+    margin-top: 0.6rem;
+
+    font-size: 0.9rem;
+    text-align: center;
+    color: #555;
+}
+
+.anniversary-videos {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 750px;
+    margin: 0 auto 3rem;
+}
+
+.anniversary-videos video {
+    width: 100%;
+
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.anniversary-distance {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+
+    text-align: center;
+    background: #fef0ff;
+    border: 1px solid #f0c8ff;
+    border-radius: 20px;
+}
+
+.anniversary-distance h3 {
+    color: #7b2cbf;
+}
+
+@media (max-width: 600px) {
+    .anniversary-gallery img {
+        height: 200px;
+    }
+
+    .anniversary-lock {
+        padding: 1.5rem 1rem;
+    }
+}
